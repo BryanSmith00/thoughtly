@@ -1,68 +1,105 @@
 body {
-    background-color: #000000;
+  background-color: #000000;
 }
 
 p{
-    margin: 10px 0px !important;
-    color: #818181;
+  margin: 10px 0px !important;
+  color: #818181;
 }
 
 .login-container {
-    width: 30%;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+	width: 30%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 .card {
-    background-color: #161618;
-    color: #ffffff;
+	background-color: #161618;
+	color: #ffffff;
+  width: 300px;
 }
 
 .btn {
-    background-color: #4E9F3D !important;
+	background-color: #4E9F3D !important;
 }
 
 .btn:hover {
-    background-color: #D8E9A8 !important;
+	background-color: #D8E9A8 !important;
 }
 
 hr {
-    width: 75%;
+	width: 75%;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .center-content {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	position: static;
 }
 
 .dash-content {
-    background-color: #000000 !important;
-    color: #FFFFFF !important;
+	background-color: #000000 !important;
+	color: #FFFFFF !important;
+  width: 100%;
 }
 
 .top-bar{
-    border:1px solid #ccc;
-    border-width:1px 0;
-    list-style:none;
-    margin:0;
-    padding:0;
-    text-align:center;
+	width: 100% !important;
+	max-width: 1200px;
+	border:1px solid #ccc;
+	border-width:1px 0;
+	list-style:none;
+	margin:0;
+	padding:0;
+	text-align:center;
 }
 
 .top-bar li{
-    display:inline;
+	display:inline;
 }
 
 .top-bar a{
-    display:inline-block;
-    padding:10px;
+	display:inline-block;
+	padding:10px;
 }
 
+.add-btn {
+	position: fixed;
+	left: 75%;
+	top: 90%;
+	transform: translate(-50%, -50%);
+}
 
+/* Add stories input fields */
+.input-field {
+	background-color: white;
+}
+
+/* Edit button on public stories */
+.fa-small {
+  font-size: 16px !important;
+}
+
+.row {
+  width: 100%;
+}
+
+.btn-float {
+  float: left;
+  margin-right: 10px;
+}
 
 
 
@@ -88,10 +125,10 @@ hr {
   }
   .menu__btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 26px;
-    height: 26px;
+    margin-top: 1.25rem;
+    margin-left: 1rem;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     z-index: 1;
   }
