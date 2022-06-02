@@ -8,14 +8,19 @@
         </label>
 
         <ul class="menu__box">
-            <li><a class="menu__item" href="/stories">Public Stories</a></li>
-            <li><a class="menu__item" href="#">About</a></li>
-            <li><a class="menu__item" href="#">Team</a></li>
-            <li><a class="menu__item" href="#">Contact</a></li>
-            <li><a class="menu__item" href="#">Twitter</a></li>
+            <li><a href="/stories">Public Stories</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
         </ul>
     </li>
 
-    <li><a href="/dashboard">Dashboard</a></li>
-    <li style="float:right"><a href="/auth/logout">Logout</a></li>
-</ul> 
+    <li><a href="/home">Home</a></li>
+
+    <li style="float:right">
+        <div class="search-bar">
+            <form action="" class="search-bar">
+                <input type="text" class="search-box" placeholder="Search.." name="search">
+                <button type="submit" class="search-submit">Submit</button>
+            </form>
+        </div>
+    </li>
+</ul>

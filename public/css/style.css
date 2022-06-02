@@ -101,9 +101,18 @@ hr {
   margin-right: 10px;
 }
 
+.search-bar {
+  display: flex;
+}
 
+.search-box {
+  max-height: 2rem;
+}
 
-
+.search-submit {
+  max-height: 2rem;
+  margin: auto 0px;
+}
 
 
 #menu__toggle {
