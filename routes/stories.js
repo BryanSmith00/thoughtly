@@ -61,7 +61,7 @@ router.post('/', ensureAuth, async(req, res) => {
     try {
         req.body.user = req.user.id;
         await Story.create(req.body);
-        res.redirect('/dashboard');
+        res.redirect('/home');
     } catch(err) {
         console.error(err);
         res.render(error/500);
@@ -112,7 +112,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
           runValidators: true,
         });
   
-        res.redirect('/dashboard');
+        res.redirect('/home');
 
       }
     } catch (err) {
@@ -136,7 +136,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         res.redirect('/stories');
         } else {
         await Story.remove({ _id: req.params.id });
-        res.redirect('/dashboard');
+        res.redirect('/home');
         }
 
     } catch (err) {
