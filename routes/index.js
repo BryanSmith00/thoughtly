@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
-const thought = require('../models/thought');
+const thought = require('../models/Thought');
 
 // @desc    Login/Landing page
 // @route   GET /
