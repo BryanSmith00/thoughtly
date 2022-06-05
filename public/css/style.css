@@ -26,26 +26,24 @@ hr {
 	width: 75%;
 }
 
-.wrapper {
-	width: 100%;
-	max-width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .center-content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	height: 100%;
 	width: 100%;
+  max-width: 1000px;
 	position: static;
+  margin: 0 auto;
 }
 
 .dash-content {
+  display: flex;
+  flex-direction: column;
 	background-color: #000000 !important;
 	color: #FFFFFF !important;
   width: 100%;
+  height: 100%;
 }
 
 .top-bar{
@@ -112,22 +110,34 @@ hr {
 /* Home page thought containers */
 
 .feed-container {
-
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
 }
 
 .thought {
-
+  display: flex;
+  width: 100%;
+  height: auto;
 }
 
 .user-pic {
+  width: 20%;
+  height: 100%;
+}
+
+.thought-content {
 
 }
 
 .thought-info-bar {
-
+  width: 80%;
+  height: 10%;
 }
 
-.thought-content {
+.thought-text {
 
 }
 

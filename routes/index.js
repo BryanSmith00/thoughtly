@@ -4,7 +4,7 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 const thought = require('../models/Thought');
 
-// @desc    Login/Landing page
+// @desc    Login page
 // @route   GET /
 router.get('/', ensureGuest, (req, res) => {
   res.render('login', {
@@ -22,6 +22,8 @@ router.get('/home', ensureAuth, async(req, res) => {
 
     res.render('home', {
       name: req.user.firstName,
+      handle: req.user.handle,
+      pic: req.user.image,
       thoughts
     });
 

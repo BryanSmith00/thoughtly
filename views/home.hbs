@@ -4,24 +4,27 @@
             {{#each thoughts}}
             <div class="thought">
                 <div class="user-pic">
-
+                    <img src="{{pic}}" alt="User image">
                 </div>
                 
-                <div class="thought-info-bar">
-
-                </div>
-
                 <div class="thought-content">
+                    <div class="thought-info-bar">
+                        <p>{{name}}</p>
+                    </div>
 
+                    <div class="thought-text">
+
+                    </div>
+
+                    <div class="thought-impressions">
+
+                    </div>
                 </div>
 
-                <div class="thought-impressions">
-
-                </div>
             </div>
+            {{/each}}
         </div>
 
-        {{/each}}
     {{else}}
         <p>You have no thoughts</p>
     {{/if}}
