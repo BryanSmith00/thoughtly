@@ -55,53 +55,6 @@ router.get('/:id', ensureAuth, async (req, res) => {
 });
 
 
-router.get('/edit/:id', ensureAuth, async (req, res) => {
-    try {
-        const thought = await Thought.findOne({
-            _id: req.params.id,
-            }).lean();
-
-        if (!thought) {
-            return res.render('error/404');
-        }
-
-        if (thought.user != req.user.id) {
-            res.redirect('/thoughts');
-        } else {
-            res.render('thoughts/edit', { thought });
-        }
-    } catch (err) {
-        console.error(err);
-        return res.render('error/500');
-    }
-});
-
-
-router.put('/:id', ensureAuth, async (req, res) => {
-    try {
-        let thought = await Thought.findById(req.params.id).lean();
-
-        if (!thought) {
-            return res.render('error/404');
-        }
-
-        if (thought.user != req.user.id) {
-            res.redirect('/thoughts');
-        } else {
-            thought = await Thought.findOneAndUpdate({ _id: req.params.id }, req.text, {
-            new: true,
-            runValidators: true,
-            });
-
-        res.redirect('/home');
-        }
-    } catch (err) {
-        console.error(err);
-        return res.render('error/500');
-    }
-});
-
-
 router.delete('/:id', ensureAuth, async (req, res) => {
     try {
         let thought = await Thought.findById(req.params.id).lean();
@@ -113,7 +66,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         if (thought.user != req.user.id) {
             res.redirect('/thoughts');
         } else {
-            await Thought.remove({ _id: req.params.id });
+            await Thought.deleteOne({ _id: req.params.id });
             res.redirect('/home');
         }
     } catch (err) {

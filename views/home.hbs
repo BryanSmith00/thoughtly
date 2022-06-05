@@ -1,15 +1,6 @@
 <div class="dash-content">
     {{#if thoughts}}
-        <table class="striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th></th>
-                </tr>
-            </thead>
-            
+        <table>
             <tbody>
                 {{#each thoughts}}
                 <tr>
@@ -17,10 +8,6 @@
                     <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
                     <td><span class="dash-status">{{status}}</span></td>
                     <td>
-                        <a href="/thoughts/edit/{{_id}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
                         <form action="/thoughts/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn red">
@@ -28,6 +15,11 @@
                             </button>
                         </form>
                     </td>
+                </tr>
+
+                <!-- Formatting each thought on the home page -->
+                <tr>
+
                 </tr>
                 {{/each}}
             </tbody>

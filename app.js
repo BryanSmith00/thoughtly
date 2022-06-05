@@ -48,11 +48,11 @@ if(process.env.NODE_ENV === 'development') {
 
 
 // Helper file to format dates using moment js
-const { formatDate, editIcon } = require('./helpers/hbs');
+const { formatDate } = require('./helpers/hbs');
 
 
 // Templating engine right now is express-handle1ars
-app.engine('.hbs', exphbs.engine({ helpers:{ formatDate, editIcon }, defaultLayout: 'main', extname: '.hbs'}));
+app.engine('.hbs', exphbs.engine({ helpers:{ formatDate }, defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 
