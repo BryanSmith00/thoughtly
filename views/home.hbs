@@ -3,17 +3,17 @@
         <div class="feed-container">
             {{#each thoughts}}
             <div class="thought">
-                <div class="user-pic">
-                    <img src="{{pic}}" alt="User image">
+                <div class="profile-pic-container">
+                    <img src="{{user.image}}" alt="User image" class="profile-pic">
                 </div>
                 
                 <div class="thought-content">
                     <div class="thought-info-bar">
-                        <p>{{name}}</p>
+                        <p>{{user.displayName}}@{{user.handle}}</p>
                     </div>
 
                     <div class="thought-text">
-
+                        <p>{{text}}</p>
                     </div>
 
                     <div class="thought-impressions">
@@ -31,7 +31,7 @@
 </div>
 
 
-
+<!--
 <tr>
     <td><a href="/thoughts/{{_id}}">{{title}}</a></td>
     <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
@@ -45,3 +45,4 @@
         </form>
     </td>
 </tr>
+-->
