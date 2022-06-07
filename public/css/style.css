@@ -133,6 +133,8 @@ hr {
   height: 100%;
   align-items: center;
   justify-content: center;
+
+  border: 2px solid #4E9F3D;
 }
 
 .profile-pic {
@@ -144,6 +146,8 @@ hr {
 
 .thought-content {
   width: 80%;
+
+  border: 2px solid #FF0000;
 }
 
 .thought-info-bar {
@@ -153,10 +157,14 @@ hr {
 
 .thought-text {
 
+
+  border: 2px solid #00FFFF;
 }
 
 .thought-impressions {
 
+
+  border: 2px solid #FF00FF;
 }
 
 /* Home page thought containers */
