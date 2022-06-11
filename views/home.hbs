@@ -1,6 +1,6 @@
 <div class="dash-content">
     {{#if thoughts}}
-        <div class="feed-container">
+        <div class="feed-container" id="feed">
             {{#each thoughts}}
             <div class="thought">
                 <div class="profile-pic-container">
@@ -10,6 +10,28 @@
                 <div class="thought-content">
                     <div class="thought-info-bar">
                         <p>{{user.displayName}}@{{user.handle}}</p>
+
+                        <!-- Three dot menu for deleting thoughts -->
+                        <div class="kebab">
+                            <span class="bi bi-three-dots">
+
+                                <ul class="dropdown">
+                                    <li>         
+                                        <form action="/thoughts/{{_id}}" method="POST" id="delete-form">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn red">
+                                            <p>Delete Thought</p>
+                                        </button>
+                                        </form> 
+                                    </li>
+
+                                    <li> <a href="#">Edit Thought</a> </li>
+                                </ul>
+                                
+                            </span>
+
+                        </div>
+
                     </div>
 
                     <div class="thought-text">
@@ -17,8 +39,9 @@
                     </div>
 
                     <div class="thought-impressions">
-                        <i class="bi bi-heart"></i>
-                        <!-- <i class="bi bi-heart-fill"></i> -->
+                        <span class="bi bi-heart"></span>
+                        <!-- <span class="bi bi-heart-fill"></span> -->
+   
                     </div>
                 </div>
 
@@ -31,8 +54,33 @@
     {{/if}}
 </div>
 
+<script>
+document.getElementById('feed').onclick = function(event) {
+    let targ = event.target.children[0];
+    console.log(targ);
+
+    if (!targ) return;
+
+    if (!document.getElementById('feed').contains(targ)) return;
+
+    targ.classList.toggle('active');
+};
+</script>
 
 <!--
+
+var kebabs = document.querySelectorAll('.kebab');
+var dropdowns = document.querySelectorAll('.dropdown');
+
+for(var i = 0; i < kebabs.length; i++) {
+kebabs[i].addEventListener('click', function() {
+dropdowns.classList.toggle('active');
+})
+}
+
+console.log(dropdowns);
+
+
 <tr>
     <td><a href="/thoughts/{{_id}}">{{title}}</a></td>
     <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
