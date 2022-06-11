@@ -16,7 +16,7 @@ router.get('/', ensureGuest, (req, res) => {
 router.get('/home', ensureAuth, async(req, res) => {
     try {
         // Fetches all thoughts that are by the logged in user
-        const thoughts = await Thought.find({ user: req.user.id })
+        const thoughts = await Thought.find({ user: req.user.id, status: "public" })
             .populate('user')
             .sort({ createdAt: 'desc' })
             .lean();

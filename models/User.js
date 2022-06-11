@@ -27,7 +27,17 @@ const UserSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    color: {
+        type: String,
+        default: 'dark',
+        enum: ['dark', 'light']
+    },
+    status: {
+        type: String,
+        default: 'public',
+        enum: ['public', 'private']
+    },
 });
 
 module.exports = mongoose.model('User', UserSchema);
