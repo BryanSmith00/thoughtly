@@ -1,0 +1,16 @@
+<div class="dash-content">
+    {{#if users}}
+        <div class="feed-container" id="feed">
+            {{#each users}}
+            <div class="thought">
+                
+                <p>{{displayName}}</p>
+
+            </div>
+            {{/each}}
+        </div>
+
+    {{else}}
+        <p>There are no users</p>
+    {{/if}}
+</div>

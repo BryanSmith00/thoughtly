@@ -38,10 +38,11 @@ const UserSchema = new mongoose.Schema({
     default: 'public',
     enum: ['public', 'private']
   },
+  // 0: standard user, 1: admin, 2: root
   userType: {
-    type: String,
-    default: 'user',
-    enum: ['user', 'admin']
+    type: Number,
+    default: 0,
+    enum: [0, 1, 2]
   }
 })
 

@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app.js",
-    "dev": "npx standard --fix && cross-env NODE_ENV=development nodemon app.js"
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "test": "npx standard --fix"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,7 @@ const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 const Thought = require('../models/Thought')
+const User = require('../models/User')
 
 // @desc    Login page
 // @route   GET /
@@ -14,13 +15,21 @@ router.get('/', ensureGuest, (req, res) => {
 // @route   GET /home
 router.get('/home', ensureAuth, async (req, res) => {
   try {
+    if (req.user.userType === 0) {
     // Fetches all thoughts that are by the logged in user
-    const thoughts = await Thought.find({ user: req.user.id, status: 'public' })
-      .populate('user')
-      .sort({ createdAt: 'desc' })
-      .lean()
-    // console.log(thoughts);
-    res.render('home', { thoughts })
+      const thoughts = await Thought.find({ user: req.user.id, status: 'public' })
+        .populate('user')
+        .sort({ createdAt: 'desc' })
+        .lean()
+      // console.log(thoughts);
+      res.render('home', { thoughts })
+    } else {
+      const admin = req.user
+      const users = await User.find()
+        .sort({ createdAt: 'desc' })
+        .lean()
+      res.render('dashboard', { admin, users })
+    }
   } catch (err) {
     console.error(err)
     res.render('error/500')
