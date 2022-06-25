@@ -22,13 +22,13 @@ router.get('/home', ensureAuth, async (req, res) => {
         .sort({ createdAt: 'desc' })
         .lean()
       // console.log(thoughts);
-      res.render('home', { thoughts })
+      res.render('user/home', { thoughts })
     } else {
       const admin = req.user
       const users = await User.find()
         .sort({ createdAt: 'desc' })
         .lean()
-      res.render('dashboard', { admin, users })
+      res.render('admin/dashboard', { admin, users })
     }
   } catch (err) {
     console.error(err)
@@ -42,7 +42,7 @@ router.get('/profile', ensureAuth, async (req, res) => {
   try {
     // Fetches all thoughts that are by the logged in user
     const thoughts = await Thought.find({ user: req.user.id }).lean()
-    res.render('profile', {
+    res.render('user/profile', {
       name: req.user.firstName,
       thoughts
     })
