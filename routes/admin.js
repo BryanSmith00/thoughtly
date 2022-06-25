@@ -25,49 +25,24 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
   }
 })
 
-// Needs updated =---------------------------------------------------------------=
-
-/*
-// @desc    Update story
-// @route   PUT /stories/:id
+// @desc    Update user account
+// @route   PUT /admin/:id
 router.put('/:id', ensureAuth, async (req, res) => {
-    try {
-      let story = await Story.findById(req.params.id).lean()
-
-      if (!story) {
-        return res.render('error/404')
-      }
-
-      if (story.user != req.user.id) {
-        res.redirect('/stories')
-      } else {
-        story = await Story.findOneAndUpdate({ _id: req.params.id }, req.body, {
-          new: true,
-          runValidators: true,
-        })
-
-        res.redirect('/dashboard')
-      }
-    } catch (err) {
-      console.error(err)
-      return res.render('error/500')
-    }
-  })
-
-//Needs updated =---------------------------------------------------------------=
-
-router.delete('/:id', ensureAuth, async (req, res) => {
   try {
-    const thought = await Thought.findById(req.params.id).lean()
+    let user = await User.findById(req.params.id).lean()
 
-    if (!thought) {
+    if (!user) {
       return res.render('error/404')
     }
 
-    if (thought.user !== req.user.id) {
-      res.redirect('/thoughts')
+    if (req.user.id === "user") {
+      res.redirect('/home')
     } else {
-      await Thought.deleteOne({ _id: req.params.id })
+      user = await User.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true,
+        runValidators: true,
+      })
+
       res.redirect('/home')
     }
   } catch (err) {
@@ -75,5 +50,27 @@ router.delete('/:id', ensureAuth, async (req, res) => {
     return res.render('error/500')
   }
 })
-*/
+
+// @desc    Delete user account
+// @route   DELETE /admin/:id
+router.delete('/:id', ensureAuth, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).lean()
+
+    if (!user) {
+      return res.render('error/404')
+    }
+
+    if (req.user.id === "user") {
+      res.redirect('/home')
+    } else {
+      await User.deleteOne({ _id: req.params.id })
+      res.redirect('/home')
+    }
+  } catch (err) {
+    console.error(err)
+    return res.render('error/500')
+  }
+})
+
 module.exports = router

@@ -21,7 +21,7 @@ p {
 	text-align: center;
 }
 
-.btn {
+.btn-green {
 	background-color: #4E9F3D !important;
 }
 
@@ -111,6 +111,9 @@ hr {
   margin: auto 0px;
 }
 
+.actions {
+  display: flex;
+}
 
 
 /* Home page thought containers */

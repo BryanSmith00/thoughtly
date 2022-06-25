@@ -1,17 +1,40 @@
-<div class="dash-content">
-    {{#if users}}
-        <div class="feed-container" id="feed">
+{{#if users}}
+    <table class="table table-dark table-hover table-borderless listener-table">
+        <thead class="coog-thead">
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Handle</th>
+                <th scope="col">Display Name</th>
+                <th scope="col">User Type</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
             {{#each users}}
-            <div class="thought">
-                
-                <p>{{displayName}}</p>
+            <tr>
+                <td>{{email}}</td>
+                <td>{{handle}}</td>
+                <td>{{displayName}}</td>
+                <td>{{userType}}</td>
+                <td>
+                    <div class="actions">
+                        <a href="/admin/edit/{{_id}}" class="btn btn-outline-success">
+                            <i class="bi bi-pencil-square"></i></a>  
 
-                <a href="/admin/edit/{{_id}}" class="btn"> <i class=""></i> </a>  
-            </div>
+                        <form action="/admin/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+
+                            <button type="submit" class="btn btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
             {{/each}}
-        </div>
-
-    {{else}}
-        <p>There are no users</p>
-    {{/if}}
-</div>
+        </tbody>
+    </table>
+{{else}}
+    <p>There are no users</p>
+{{/if}}
