@@ -20,6 +20,7 @@ module.exports = function (passport) {
   async (accessToken, refreshToken, profile, done) => {
     const uewUser = {
       googleId: profile.id,
+      email: profile.emails[0].value,
       handle: Math.abs(hashCode(profile.id)),
       displayName: profile.displayName,
       firstName: profile.name.givenName,
