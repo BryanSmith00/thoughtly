@@ -19,9 +19,12 @@
                 <td>{{userType}}</td>
                 <td>
                     <div class="actions">
+
+                        <!-- Edit user button on admin dash -->
                         <a href="/admin/edit/{{_id}}" class="btn btn-outline-success">
                             <i class="bi bi-pencil-square"></i></a>  
 
+                        <!-- Delete user button on admin dash -->
                         <form action="/admin/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
 
@@ -29,6 +32,16 @@
                                 <i class="bi bi-trash"></i>
                             </button>
                         </form>
+
+                        <!-- Follow button on admin dash -->
+                        <form action="/admin/follow/{{_id}}" method="POST" class="col s12">
+                            <input type="hidden" name="_method" value="PUT">
+
+                            <button type="submit" class="btn">
+                                <i class="btn"></i> follow
+                            </button>
+                        </form>                     
+
                     </div>
                 </td>
             </tr>

@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const { ensureAuth } = require('../middleware/auth')
+const { ensureAdminAuth } = require('../middleware/auth')
 
 const User = require('../models/User')
 
 // @desc    Show edit page for user account
 // @route   GET /admin/edit/:id
-router.get('/edit/:id', ensureAuth, async (req, res) => {
+router.get('/edit/:id', ensureAdminAuth, async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id }).lean()
 
@@ -27,7 +27,7 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 
 // @desc    Update user account
 // @route   PUT /admin/:id
-router.put('/:id', ensureAuth, async (req, res) => {
+router.put('/:id', ensureAdminAuth, async (req, res) => {
   try {
     let user = await User.findById(req.params.id).lean()
 
@@ -35,12 +35,12 @@ router.put('/:id', ensureAuth, async (req, res) => {
       return res.render('error/404')
     }
 
-    if (req.user.id === "user") {
+    if (req.user.id === 'user') {
       res.redirect('/home')
     } else {
       user = await User.findOneAndUpdate({ _id: req.params.id }, req.body, {
         new: true,
-        runValidators: true,
+        runValidators: true
       })
 
       res.redirect('/home')
@@ -53,7 +53,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
 
 // @desc    Delete user account
 // @route   DELETE /admin/:id
-router.delete('/:id', ensureAuth, async (req, res) => {
+router.delete('/:id', ensureAdminAuth, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).lean()
 
@@ -61,7 +61,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
       return res.render('error/404')
     }
 
-    if (req.user.id === "user") {
+    if (req.user.id === 'user') {
       res.redirect('/home')
     } else {
       await User.deleteOne({ _id: req.params.id })

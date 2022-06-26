@@ -45,7 +45,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'user',
     enum: ['user', 'admin', 'root']
-  }
+  },
+  follows: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ]
 })
 
 module.exports = mongoose.model('User', UserSchema)
