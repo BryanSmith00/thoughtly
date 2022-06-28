@@ -34,6 +34,17 @@ router.get('/home', ensureAuth, async (req, res) => {
   }
 })
 
+// @desc    Search page
+// @route   GET /search
+router.get('/search', ensureAuth, async (req, res) => {
+  try {
+    res.render('search')
+  } catch (err) {
+    console.error(err)
+    res.render('error/500')
+  }
+})
+
 // @desc    User profile
 // @route   GET /profile
 router.get('/profile', ensureUserAuth, async (req, res) => {
@@ -44,6 +55,18 @@ router.get('/profile', ensureUserAuth, async (req, res) => {
       name: req.user.firstName,
       thoughts
     })
+  } catch (err) {
+    console.error(err)
+    res.render('error/500')
+  }
+})
+
+// @desc    Show user's profile
+// @route   GET /user/:handle
+router.get('/user/:handle', ensureAuth, async (req, res) => {
+  try {
+    const profile = await User.findOne({ handle: req.params.handle }).lean()
+    res.render('userProfile', { profile })
   } catch (err) {
     console.error(err)
     res.render('error/500')
