@@ -15,7 +15,7 @@ router.get('/edit/:id', ensureAdminAuth, async (req, res) => {
     }
 
     if (req.user.userType === 0) {
-      res.redirect('/home')
+      res.redirect('/')
     } else {
       res.render('admin/editUser', { user })
     }
@@ -36,14 +36,14 @@ router.put('/:id', ensureAdminAuth, async (req, res) => {
     }
 
     if (req.user.id === 'user') {
-      res.redirect('/home')
+      res.redirect('/')
     } else {
       user = await User.findOneAndUpdate({ _id: req.params.id }, req.body, {
         new: true,
         runValidators: true
       })
 
-      res.redirect('/home')
+      res.redirect('/')
     }
   } catch (err) {
     console.error(err)
@@ -62,10 +62,10 @@ router.delete('/:id', ensureAdminAuth, async (req, res) => {
     }
 
     if (req.user.id === 'user') {
-      res.redirect('/home')
+      res.redirect('/')
     } else {
       await User.deleteOne({ _id: req.params.id })
-      res.redirect('/home')
+      res.redirect('/')
     }
   } catch (err) {
     console.error(err)

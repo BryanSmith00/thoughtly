@@ -6,14 +6,14 @@ const Thought = require('../models/Thought')
 const User = require('../models/User')
 
 // @desc    Login page
-// @route   GET /
-router.get('/', ensureGuest, (req, res) => {
+// @route   GET /login
+router.get('/login', ensureGuest, (req, res) => {
   res.render('login', { layout: 'login' })
 })
 
 // @desc    Home page
-// @route   GET /home
-router.get('/home', ensureAuth, async (req, res) => {
+// @route   GET /
+router.get('/', ensureAuth, async (req, res) => {
   try {
     if (req.user.userType === 'user') {
     // Fetches all thoughts that are by the logged in user
@@ -94,7 +94,7 @@ router.put('/follow/:id', ensureUserAuth, async (req, res) => {
       await current.save()
     }
 
-    res.redirect('/home')
+    res.redirect('/')
   } catch (err) {
     console.error(err)
     return res.render('error/500')

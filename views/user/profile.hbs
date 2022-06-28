@@ -1,1 +1,8 @@
 <h3 style="background-color: white; text-color: black;">Welcome {{name}}</h3>
+{{#if thoughts}}
+    {{#each thoughts}}
+    <p>thought</p>
+    {{/each}}
+{{else}}
+    <p>You have no thoughts</p>
+{{/if}}

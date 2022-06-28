@@ -26,7 +26,7 @@ router.post('/', ensureAuth, async (req, res) => {
   try {
     req.body.user = req.user.id
     await Thought.create(req.body)
-    res.redirect('/home')
+    res.redirect('/')
   } catch (err) {
     console.error(err)
     res.render('error/500')
@@ -62,7 +62,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
     if (thought.user == req.user.id) {
       await Thought.deleteOne({ _id: req.params.id })
     }
-    res.redirect('/home')
+    res.redirect('/')
   } catch (err) {
     console.error(err)
     return res.render('error/500')
