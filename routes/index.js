@@ -78,6 +78,17 @@ router.get('/user/:handle', ensureAuth, async (req, res) => {
   }
 })
 
+// @desc    Discover page
+// @route   GET /discover
+router.get('/discover', ensureAuth, async (req, res) => {
+  try {
+    res.render('discover')
+  } catch (err) {
+    console.error(err)
+    res.render('error/500')
+  }
+})
+
 // @desc    follow user account
 // @route   PUT /follow/:id
 router.put('/follow/:id', ensureUserAuth, async (req, res) => {
