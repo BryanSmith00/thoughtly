@@ -66,8 +66,9 @@ router.get('/profile', ensureUserAuth, async (req, res) => {
 router.get('/user/:handle', ensureAuth, async (req, res) => {
   try {
     const profile = await User.findOne({ handle: req.params.handle }).lean()
+    const thoughts = await Thought.find({ user: profile._id }).lean()
     if (profile.status === 'public' || req.user.follows.includes(profile._id)) {
-      res.render('userProfile', { profile })
+      res.render('userProfile', { profile, thoughts })
     } else {
       // TODO: Remove profile injection when request follow is implemented
       res.render('denied', { profile })
