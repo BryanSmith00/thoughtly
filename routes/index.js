@@ -66,7 +66,8 @@ router.get('/profile', ensureUserAuth, async (req, res) => {
 router.get('/user/:handle', ensureAuth, async (req, res) => {
   try {
     const profile = await User.findOne({ handle: req.params.handle }).lean()
-    const thoughts = await Thought.find({ user: profile._id }).lean()
+    //Grabs all the thoughts posted by the user who's profile is requested and joins them into the thoughts array
+    const thoughts = await Thought.find({ user: profile }).populate('user').sort({ createdAt: 'desc' }).lean()
     if (profile.status === 'public' || req.user.follows.includes(profile._id)) {
       res.render('userProfile', { profile, thoughts })
     } else {
