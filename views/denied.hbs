@@ -1,1 +1,8 @@
 <p>This account is private or you do not have access to view it</p>
+
+<!-- TODO: Implement requesting to follow messages -->
+<form action="/follow/{{profile._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+
+    <button type="submit" class="btn-green">request to follow</button>
+</form>

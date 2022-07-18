@@ -7,6 +7,20 @@
 <!-- Format date -->
 <p>Joined {{profile.createdAt}}</p>
 
+{{#if isFollowed}}
+    <form action="/unfollow/{{profile._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+
+        <button type="submit" class="btn-green">unfollow</button>
+    </form>
+{{else}}
+    <form action="/follow/{{profile._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+
+        <button type="submit" class="btn-green">follow</button>
+    </form>
+{{/if}}
+
 <hr>
 
 <div class="dash-content">
