@@ -3,8 +3,9 @@
   font-size: 16px !important;
 }
 
-body {
+html, body {
   background-color: #000000;
+  height: 100%;
 }
 
 p {
@@ -13,12 +14,8 @@ p {
   display: inline-block;
 }
 
-.login-container {
-	width: 30%;
-	margin-top: 5%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+hr {
+	width: 75%;
 }
 
 .btn-green {
@@ -29,8 +26,22 @@ p {
 	background-color: #D8E9A8 !important;
 }
 
-hr {
-	width: 75%;
+.login-container {
+	width: 30%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  outline: #00bcd4;
+  outline-width: 2px;
 }
 
 .center-content {
@@ -61,6 +72,13 @@ hr {
 	margin:0;
 	padding:0;
 	text-align:center;
+}
+
+.discover {
+  height: 100%;
+  width: 100px;
+  outline: #4E9F3D;
+  outline-width: 2px;
 }
 
 .top-bar li{

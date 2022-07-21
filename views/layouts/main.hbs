@@ -16,10 +16,22 @@
 </head>
 <body>
     <script>0</script>
-    <div class="center-content">
-        {{> _header}}
-        {{> _add_btn}}
-        {{{body}}}
+    <!-- Home div should be flex row to to have center content and discover window to right side -->
+    <div class="home">
+
+        <div class="discover">
+
+        </div>
+        
+        <div class="center-content">
+            {{> _header}}
+            {{> _add_btn}}
+            {{{body}}}
+        </div>
+
+        <div class="discover">
+
+        </div>
     </div>
 
 </body>
