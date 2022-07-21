@@ -68,21 +68,29 @@ router.get('/user/:handle', ensureAuth, async (req, res) => {
     // Profile of the user that is requested
     const profile = await User.findOne({ handle: req.params.handle }).lean()
 
-    let isFollowed = false
-    isFollowed = req.user.follows.includes(profile._id)
+    if (profile) {
+      if (profile.userType !== 'user') {
+        return res.render('error/404')
+      }
 
-    // Grabs all the thoughts posted by the user who's profile is requested and joins them into the thoughts array
-    const thoughts = await Thought.find({ user: profile }).populate('user').sort({ createdAt: 'desc' }).lean()
+      const isFollowed = req.user.follows.includes(profile._id)
 
-    if (profile.status === 'public' || req.user.follows.includes(profile._id)) {
-      res.render('userProfile', { isFollowed, profile, thoughts })
+      // Grabs all the thoughts posted by the user who's profile is requested and joins them into the thoughts array
+      const thoughts = await Thought.find({ user: profile }).populate('user').sort({ createdAt: 'desc' }).lean()
+
+      // Will only allow you to see the account if they are public or you follow them, admins excluded
+      if (profile.status === 'public' || req.user.follows.includes(profile._id)) {
+        res.render('userProfile', { isFollowed, profile, thoughts })
+      } else {
+        // TODO: Remove profile injection when request follow is implemented
+        res.render('denied', { profile })
+      }
     } else {
-      // TODO: Remove profile injection when request follow is implemented
-      res.render('denied', { profile })
+      return res.render('error/404')
     }
   } catch (err) {
     console.error(err)
-    res.render('error/500')
+    return res.render('error/500')
   }
 })
 
@@ -152,5 +160,12 @@ router.put('/unfollow/:id', ensureUserAuth, async (req, res) => {
     return res.render('error/500')
   }
 })
+
+// Catch any other routes??
+/*
+router.get('*', function(req, res){
+  res.send('what???', 404);
+});
+*/
 
 module.exports = router
