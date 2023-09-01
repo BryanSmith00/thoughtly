@@ -19,11 +19,6 @@ mongoose
   .then(() => console.log("MongoDB is  connected successfully"))
   .catch((err) => console.error(err));
 
-app.listen(PORT, () => {
-  console.log(
-    `Server running on ${process.env.NODE_ENV} mode on http://localhost:${PORT}/`
-  );
-});
 
 app.use(
   cors({
@@ -33,6 +28,14 @@ app.use(
   })
 );
 
+app.use(cookieParser())
+
 app.use(express.json());
 
 app.use("/", authRoute);
+
+app.listen(PORT, () => {
+  console.log(
+    `Server running on ${process.env.NODE_ENV} mode on http://localhost:${PORT}/`
+  );
+});
