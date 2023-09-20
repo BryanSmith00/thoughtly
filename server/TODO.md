@@ -4,4 +4,4 @@ authMiddleware currently performs the verify for the home page
 
 make a new / endpoint that isnt protected by auth
 
-reofactor authcontroller file into separate login and signup routes in the routes folder
+# Bugs
