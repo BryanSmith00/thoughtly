@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const ThoughtSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    required: true,
-  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+  },
+  text: {
+    type: String,
+    required: true,
   },
   likes: {
     type: Number,

@@ -4,4 +4,6 @@ authMiddleware currently performs the verify for the home page
 
 make a new / endpoint that isnt protected by auth
 
+implement user following
+
 # Bugs
