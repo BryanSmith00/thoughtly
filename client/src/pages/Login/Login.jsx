@@ -1,3 +1,5 @@
+import "./login.css";
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -22,10 +24,6 @@ const Login = () => {
     toast.error(err, {
       position: "bottom-left",
     });
-  const handleSuccess = (msg) =>
-    toast.success(msg, {
-      position: "bottom-left",
-    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +38,6 @@ const Login = () => {
       console.log(data);
       const { success, message } = data;
       if (success) {
-        handleSuccess(message);
         setTimeout(() => {
           navigate("/");
         }, 1000);
@@ -58,36 +55,43 @@ const Login = () => {
   };
 
   return (
-    <div className="form_container">
-      <h2>Login Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={handleOnChange}
-          />
+    <section>
+      <div className="signin">
+        <div className="content">
+          <h2>Welcome</h2>
+
+          <form className="form" onSubmit={handleSubmit}>
+
+            <div className="inputBox">
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleOnChange}
+              />
+              <i>Email</i>
+            </div>
+            <div className="inputBox">
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleOnChange}
+              />
+              <i>Password</i>
+            </div>
+            <div class="links"> <a href="#">Forgot Password</a> <a href="/signup">Signup</a> </div>
+
+            <div className="inputBox">
+              <input type="submit" value="Log in"></input>
+            </div>
+          </form>
+
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-        <span>
-          Already have an account? <Link to={"/signup"}>Signup</Link>
-        </span>
-      </form>
+      </div>
+
       <ToastContainer />
-    </div>
+    </section>
   );
 };
 

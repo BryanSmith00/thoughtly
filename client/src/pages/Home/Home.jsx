@@ -1,4 +1,5 @@
 import "./home.css";
+import Feed from "../../components/Feed/Feed";
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
             {" "}
             Welcome
           </h4>
+          <Feed></Feed>
         </div>
       </>
     );
