@@ -8,4 +8,10 @@ implement user following
 
 Log in page missing forgot password link
 
+sanitize inputs (backend before inserting anything into a database)
+
+regex for password and username fields on login and signup forms (pattern)
+
+add confirm password for sign up form
+
 # Bugs
