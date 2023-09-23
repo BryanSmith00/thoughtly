@@ -14,4 +14,8 @@ regex for password and username fields on login and signup forms (pattern)
 
 add confirm password for sign up form
 
+add logout route that deletes cookie and redirects to login page
+
+if user is logged in, dont let them visit the login or signup pages
+
 # Bugs

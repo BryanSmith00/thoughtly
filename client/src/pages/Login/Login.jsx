@@ -87,7 +87,7 @@ const Login = () => {
             <div className="inputBox">
               <input type="submit" value="Log in"></input>
             </div>
-            <div class="links">
+            <div className="links">
               {" "}
               <Link to={"#"}>Forgot Password</Link>{" "}
               <Link to={"/signup"}>Sign up</Link>{" "}

@@ -100,7 +100,7 @@ const Signup = () => {
             <div className="inputBox">
               <input type="submit" value="Sign up"></input>
             </div>
-            <div class="links">
+            <div className="links">
               {" "}
               Already have an account? <Link to={"/login"}>Log in</Link>{" "}
             </div>
