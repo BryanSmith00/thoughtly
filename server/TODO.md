@@ -18,4 +18,12 @@ add logout route that deletes cookie and redirects to login page
 
 if user is logged in, dont let them visit the login or signup pages
 
+make it so the email and password fields dont empty on submitting login form, same for sign up
+
+add 404 routes for anything not in the route list
+
+do we even need a home route on the backend or should the frontend component just return and the feed component fetches all the data
+
+factor feed out from home component into its own nested component
+
 # Bugs

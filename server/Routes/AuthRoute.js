@@ -11,6 +11,6 @@ router.post("/signup", Signup);
 router.post("/login", Login);
 router.post("/", userVerification);
 router.post("/createthought", CreateThought);
-router.get("/home", Home);
+router.post("/home", Home);
 
 module.exports = router;

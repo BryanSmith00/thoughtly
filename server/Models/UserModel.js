@@ -10,6 +10,11 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+    unique: true,
+  },
+  displayName: {
+    type: String,
+    default: "",
   },
   password: {
     type: String,
@@ -19,6 +24,24 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+  userType: {
+    type: String,
+    default: "user",
+    enum: ["user", "admin", "root"],
+  },
+  visibility: {
+    type: String,
+    default: "public",
+    enum: ["public", "private"],
+  },
+  follows: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: [],
+      required: true,
+    },
+  ],
 });
 
 UserSchema.pre("save", async function () {
