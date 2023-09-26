@@ -26,4 +26,6 @@ do we even need a home route on the backend or should the frontend component jus
 
 factor feed out from home component into its own nested component
 
+take data from home response and put it into thoughts
+
 # Bugs

@@ -1,13 +1,9 @@
 import "./thought.css";
 
-function Thought() {
+export const Thought = (props) => {
   return (
-    <>
-      <div className="ind_thought">
-        <h4>This is a thought</h4>
-      </div>
-    </>
+    <div className="thought">
+      <h4>{props.text}</h4>
+    </div>
   );
-}
-
-export default Thought;
+};
