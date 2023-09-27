@@ -9,20 +9,37 @@ module.exports.Home = async (req, res) => {
   // If the request has no token then present all thoughts for the home feed
   // TODO: make this select only a certain number to load at once rather than all
   if (!token) {
-    res.json(await Thought.find().sort({createdAt: -1}).select("user text likes reposts").limit(10));
+    res.json(
+      await Thought.find()
+        .populate("user")
+        .sort({ createdAt: -1 })
+        .select(
+          "username displayName profilePic text image likes reposts replies createdAt"
+        )
+        .limit(10)
+    );
     return res;
   }
 
   jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
     if (err) {
-      console.log(err)
+      console.log(err);
       return res.json({ status: false });
     } else {
       const user = await User.findById(data.id);
       if (user) {
         // TODO: once user following is implemented select all thoughts from users
         // that are followed and return them for the home feed
-        res.json(await Thought.find().sort({createdAt: -1}).select("user text likes reposts").limit(10));
+        res.json(
+          await Thought.find()
+            .populate("user")
+            .sort({ createdAt: -1 })
+            .select(
+              "username displayName profilePic text image likes reposts replies createdAt"
+            )
+            .limit(10)
+        );
+        console.log(res.json);
         return res;
       } else {
         return res.json({ status: false, message: "invalid token" });

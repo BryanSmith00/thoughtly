@@ -9,8 +9,10 @@ const Home = () => {
   const [cookies, removeCookie] = useCookies([]);
 
   const Logout = () => {
-    removeCookie("token");
-    navigate("/login");
+    if (cookies) {
+      removeCookie("token");
+      navigate("/login");
+    }
   };
 
   return (

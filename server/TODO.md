@@ -28,4 +28,8 @@ factor feed out from home component into its own nested component
 
 take data from home response and put it into thoughts
 
+feed css drop shadow?
+
+user pages with link in thought
+
 # Bugs

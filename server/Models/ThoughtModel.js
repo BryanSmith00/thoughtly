@@ -9,14 +9,34 @@ const ThoughtSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  likes: {
-    type: Number,
-    default: 0,
+  image: {
+    type: String,
+    default: "",
   },
-  reposts: {
-    type: Number,
-    default: 0,
-  },
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: [],
+      required: true,
+    },
+  ],
+  reposts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: [],
+      required: true,
+    },
+  ],
+  replies: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Thought",
+      default: [],
+      required: true,
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

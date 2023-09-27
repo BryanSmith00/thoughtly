@@ -42,6 +42,10 @@ const UserSchema = new mongoose.Schema({
       required: true,
     },
   ],
+  profilePic: {
+    type: String,
+    default: "",
+  },
 });
 
 UserSchema.pre("save", async function () {
