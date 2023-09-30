@@ -1,0 +1,15 @@
+/*.home {
+    display:flex;
+}*/
+
+.add-modal {
+    z-index: 0;
+    float: right;
+    position: fixed;
+    bottom:5%;
+    right: 5%;
+
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50px;
+}

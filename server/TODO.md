@@ -32,4 +32,14 @@ feed css drop shadow?
 
 user pages with link in thought
 
+
+
+
+finish lifting post state up from feed to home so that the state can be update from the create thought modal
+
+does updating the state in home cause feed to re render? if not force a re render?
+
+
+
+
 # Bugs

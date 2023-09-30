@@ -1,29 +1,49 @@
 import "./feed.css";
 import { Thought } from "../Thought/Thought";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
-export const Feed = () => {
-  const [state, setState] = useState("");
-
-  // on component mount if there is no state is hits the endpoint and gets the post data
+export const Feed = (props) => {
+  // on component mount
   useEffect(() => {
-    const getData = async () => {
-      const data = await axios.post("http://localhost:4000/home", {});
-      setState(data);
-    };
-
-    if (!state) {
-      getData();
-    }
+    if (!props.dataState) getData();
   });
 
-  // if the state has been updated by getData then we map down each post into its own thought component
-  if (state) {
+  const getData = async () => {
+    props.changeLoading(true);
+
+    const posts = await axios
+      .post("http://localhost:4000/home", {})
+      .catch((error) => {
+        console.error("error: ", error);
+        props.changeError(error);
+
+        props.changeLoading(false);
+      });
+
+    props.changeLoading(false);
+    props.changeData(posts);
+  };
+
+  if (props.loadingState) {
+    return <p>Loading ...</p>;
+  }
+
+  if (props.errorState) {
     return (
-      <>
-        {state["data"].map((post) => (
+      <p>
+        There was an error loading posts
+        <button onClick={this.getData}>Try again</button>
+      </p>
+    );
+  }
+
+  // if the state has been updated by getData then we map down each post into its own thought component
+  if (props.dataState) {
+    return (
+      <div className="feed">
+        {props.dataState["data"].map((post) => (
           <Thought
             key={post["_id"]}
             _id={post["_id"]}
@@ -38,7 +58,7 @@ export const Feed = () => {
             createdAt={post["createdAt"]}
           ></Thought>
         ))}
-      </>
+      </div>
     );
   }
 };

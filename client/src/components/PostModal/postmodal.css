@@ -1,0 +1,35 @@
+.close-modal-btn {
+  background-color: rgb(37, 37, 37);
+  border-color: rgb(36, 36, 36);
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.248);
+  height: 500px;
+  width: 500px;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-content {
+}
+
+.create-thought-text {
+}
+
+.modal-footer {
+}
