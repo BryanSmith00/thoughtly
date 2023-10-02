@@ -30,6 +30,7 @@ export const PostModal = ({ open, close }) => {
       console.log(data);
       const { success, message } = data;
       if (success) {
+        close();
       } else {
       }
     } catch (error) {

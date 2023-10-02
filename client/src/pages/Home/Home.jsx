@@ -1,6 +1,6 @@
 import "./home.css";
 import { Feed } from "../../components/Feed/Feed";
-import { PostModal } from "../../components/PostModal/PostModal"
+import { PostModal } from "../../components/PostModal/PostModal";
 
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <div className="home">
       <button onClick={Logout}>LOGOUT</button>
-      <Feed
+      <Feed key={openModel}
         dataState={data}
         changeData={setData}
         loadingState={loading}
@@ -35,7 +35,9 @@ const Home = () => {
         changeError={setError}
       ></Feed>
 
-      <button className="add-modal" onClick={() => setOpenModel(true)}>+</button>
+      <button className="add-modal" onClick={() => setOpenModel(true)}>
+        +
+      </button>
       <PostModal open={openModel} close={() => setOpenModel(false)}></PostModal>
     </div>
   );
