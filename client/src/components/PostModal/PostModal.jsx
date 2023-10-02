@@ -1,10 +1,40 @@
 import "./postmodal.css";
 
 import axios from "axios";
+import { useState } from "react";
 
 export const PostModal = ({ open, close }) => {
+  const [inputValue, setInputValue] = useState({
+    text: "",
+  });
+  const { text } = inputValue;
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        "http://localhost:4000/createthought",
+        {
+          ...inputValue,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      const { success, message } = data;
+      if (success) {
+      } else {
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (open) {
@@ -18,9 +48,15 @@ export const PostModal = ({ open, close }) => {
                 Cancel
               </button>
             </div>
-            <form className="" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
               <div className="modal-content">
-                <input class="create-thought-text"></input>
+                <input
+                  type="text"
+                  required
+                  value={text}
+                  name="text"
+                  onChange={handleOnChange}
+                ></input>
               </div>
               <div className="modal-footer">
                 <p>footer</p>
