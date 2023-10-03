@@ -25,10 +25,12 @@ const Home = () => {
     }
   };
 
+  // on component mount hook
   useEffect(() => {
     if (!data) getData();
   });
 
+  // fetched the post data to pass down to feed component as props
   const getData = async () => {
     if (!data) setLoading(true);
 
@@ -51,7 +53,6 @@ const Home = () => {
     <div className="home">
       <button onClick={Logout}>LOGOUT</button>
       <Feed
-
         dataState={data}
         changeData={setData}
         loadingState={loading}
@@ -63,7 +64,13 @@ const Home = () => {
       <button className="add-modal" onClick={() => setOpenModel(true)}>
         +
       </button>
-      <PostModal open={openModel} close={() => {setOpenModel(false); getData()}}></PostModal>
+      <PostModal
+        open={openModel}
+        close={() => {
+          setOpenModel(false);
+          getData();
+        }}
+      ></PostModal>
     </div>
   );
 };

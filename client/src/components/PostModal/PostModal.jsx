@@ -30,6 +30,7 @@ export const PostModal = ({ open, close }) => {
       console.log(data);
       const { success, message } = data;
       if (success) {
+        console.log(message);
         close();
       } else {
       }
@@ -44,24 +45,30 @@ export const PostModal = ({ open, close }) => {
         <div className="overlay">
           <div className="modal-container">
             <div className="modal-header">
-              <p>this is there a profile pic will go</p>
+              <p>Post a thought</p>
               <button className="close-modal-btn" onClick={close}>
                 Cancel
               </button>
             </div>
             <form className="form" onSubmit={handleSubmit}>
               <div className="modal-content">
-                <input
+                <textarea
+                  className="add-post-text"
                   type="text"
                   required
                   value={text}
                   name="text"
                   onChange={handleOnChange}
-                ></input>
+                  maxLength={512}
+                  minLength={1}
+                  rows={8}
+                  cols={40}
+                ></textarea>
               </div>
               <div className="modal-footer">
-                <p>footer</p>
-                <button type="Submit">Post</button>
+                <button className="modal-submit-btn" type="Submit">
+                  Post
+                </button>
               </div>
             </form>
           </div>

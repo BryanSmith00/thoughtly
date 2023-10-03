@@ -1,13 +1,7 @@
 import "./feed.css";
 import { Thought } from "../Thought/Thought";
 
-import { useEffect } from "react";
-
 export const Feed = (props) => {
-  // on component mount
-  useEffect(() => {
-  });
-
   if (props.loadingState) {
     return <p>Loading ...</p>;
   }
@@ -21,7 +15,7 @@ export const Feed = (props) => {
     );
   }
 
-  // if the state has been updated by getData then we map down each post into its own thought component
+  // takes the post data from the props and maps it down into individual thought components
   if (props.dataState) {
     return (
       <div className="feed">
