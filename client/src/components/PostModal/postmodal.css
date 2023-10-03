@@ -13,11 +13,15 @@
 }
 
 .modal-container {
+  margin:auto;
+  transform: translate(0, 42rem);
+  
+  
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.248);
-  height: 500px;
-  width: 500px;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 15rem;
+  width: 30rem;
 }
 
 .modal-header {

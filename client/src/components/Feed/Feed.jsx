@@ -2,33 +2,12 @@ import "./feed.css";
 import { Thought } from "../Thought/Thought";
 
 import { useEffect } from "react";
-import axios from "axios";
 
 export const Feed = (props) => {
-  console.log("??");
-
   // on component mount
   useEffect(() => {
-    if (!props.dataState) getData();
   });
 
-  const getData = async () => {
-    if (!props.dataState) props.changeLoading(true);
-
-    const posts = await axios
-      .post("http://localhost:4000/home", {})
-      .catch((error) => {
-        console.error("error: ", error);
-
-        if (!props.dataState) {
-          props.changeError(error);
-          props.changeLoading(false);
-        }
-      });
-    if (!props.dataState) props.changeLoading(false);
-    props.changeData(posts);
-  };
-  getData();
   if (props.loadingState) {
     return <p>Loading ...</p>;
   }
@@ -37,7 +16,7 @@ export const Feed = (props) => {
     return (
       <p>
         There was an error loading posts
-        <button onClick={this.getData}>Try again</button>
+        <button /*onClick={this.getData}*/>Try again</button>
       </p>
     );
   }
