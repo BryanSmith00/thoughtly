@@ -35,13 +35,13 @@ user pages with link in thought
 
 
 
-finish lifting post state up from feed to home so that the state can be update from the create thought modal
-
-does updating the state in home cause feed to re render? if not force a re render?
-
 delete button for thoughts if they belong to you
 
 clean up the rerendering of feed when using the post modal. Only change the state key when a post is made, new state will be needed in home
 
+add profile to header
+
+## p1
+add /logout route
 
 # Bugs
