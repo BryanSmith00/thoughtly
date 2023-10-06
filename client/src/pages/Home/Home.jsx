@@ -1,6 +1,5 @@
 import "./home.css";
-import { Feed } from "../../components/Feed/Feed";
-import { PostModal } from "../../components/PostModal/PostModal";
+import { Feed, Navbar, PostModal } from "../../components/componentindex";
 
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -51,7 +50,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <button onClick={Logout}>LOGOUT</button>
+      <Navbar></Navbar>
       <Feed
         dataState={data}
         changeData={setData}
