@@ -16,7 +16,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const [openModel, setOpenModel] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const Logout = () => {
     if (cookies) {
@@ -61,13 +61,19 @@ const Home = () => {
         changeError={setError}
       ></Feed>
 
-      <button className="add-modal" onClick={() => setOpenModel(true)}>
+      <button
+        className="add-modal"
+        onClick={() => {
+          if (!cookies.token.value) navigate("/login");
+          else setOpenModal(!openModal);
+        }}
+      >
         +
       </button>
       <PostModal
-        open={openModel}
+        open={openModal}
         close={() => {
-          setOpenModel(false);
+          setOpenModal(false);
           getData();
         }}
       ></PostModal>

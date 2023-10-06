@@ -46,7 +46,7 @@ export const PostModal = ({ open, close }) => {
           <div className="modal-container">
             <div className="modal-header">
               <p>Post a thought</p>
-              <button className="close-modal-btn" onClick={close}>
+              <button className="modal-btn close-modal-btn" onClick={close}>
                 Cancel
               </button>
             </div>
@@ -59,14 +59,12 @@ export const PostModal = ({ open, close }) => {
                   value={text}
                   name="text"
                   onChange={handleOnChange}
-                  maxLength={512}
+                  maxLength={256}
                   minLength={1}
-                  rows={8}
-                  cols={40}
                 ></textarea>
               </div>
               <div className="modal-footer">
-                <button className="modal-submit-btn" type="Submit">
+                <button className="modal-btn modal-submit-btn" type="Submit">
                   Post
                 </button>
               </div>

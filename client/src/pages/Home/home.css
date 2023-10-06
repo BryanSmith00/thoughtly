@@ -3,13 +3,18 @@
 }*/
 
 .add-modal {
-    z-index: 0;
+    background-color: rgba(163, 92, 10, 0.603);
+    border-radius: 3rem;
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 5;
     float: right;
     position: fixed;
-    bottom:5%;
+    bottom:7%;
     right: 5%;
-
     width: 5rem;
     height: 5rem;
-    border-radius: 50px;
+    font-size: 60px;
+    font-weight: 100;
+
 }

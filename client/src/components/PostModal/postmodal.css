@@ -1,11 +1,14 @@
 .modal-container {
-  margin:auto;
+  margin: auto;
   transform: translate(0, 42rem);
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.9);
-  height: 15rem;
+  background-color: #303030;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 16rem;
   width: 30rem;
+  font-size: 20px;
+  border-radius: 0.25rem;
 }
 
 .overlay {
@@ -21,27 +24,44 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 2rem;
+}
+
+.modal-btn {
+  background-color: rgb(37, 37, 37);
+  border-color: rgb(36, 36, 36);
+  color: white;
+  cursor: pointer;
 }
 
 .close-modal-btn {
-  background-color: rgb(37, 37, 37);
-  border-color: rgb(36, 36, 36);
-  align-self: right;
-  margin: 4px 4px 4px 0px;
-}
-
-.add-post-text {
-  color: black;
-  resize: none;
-  white-space: pre-wrap;
-  margin-left: 1rem;
-  margin-right: auto;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
 }
 
 .modal-submit-btn {
-  color: black;
   width: 2.5rem;
   height: 1.5rem;
-  margin-top: 0.25rem;
-  margin-left: 0.25rem;
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+}
+
+.add-post-text {
+  color: white;
+  background-color: rgb(61, 61, 61);
+  border-color: rgba(0, 0, 0, 0);
+
+  position: absolute;
+  top: 2.5rem;
+  left: 5%;
+  height: 67%;
+  width: 90%;
+
+  resize: none;
+  white-space: pre-wrap;
+  font-size: 18px;
+  overflow: hidden;
+  outline: none;
 }
