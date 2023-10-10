@@ -45,3 +45,5 @@ add profile to header
 add /logout route
 
 # Bugs
+
+thoughts with no image still have a post-img-wrap div that is 20px tall
