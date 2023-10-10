@@ -3,15 +3,15 @@ import { Thought } from "../Thought/Thought";
 
 export const Feed = (props) => {
   if (props.loadingState) {
-    return <p>Loading ...</p>;
+    return <p className="loading-p">Loading ...</p>;
   }
 
+  //<button /*onClick={this.getData}*/>Try again</button>
   if (props.errorState) {
     return (
-      <p>
-        There was an error loading posts
-        <button /*onClick={this.getData}*/>Try again</button>
-      </p>
+      <div className="feed">
+        <p className="error-p">There was an error loading posts</p>
+      </div>
     );
   }
 

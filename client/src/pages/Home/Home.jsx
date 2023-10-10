@@ -36,12 +36,11 @@ const Home = () => {
     const posts = await axios
       .post("http://localhost:4000/home", {})
       .catch((error) => {
-        console.error("error: ", error);
-
         if (!data) {
           setError(error);
           setLoading(false);
         }
+        return <div className="home"></div>;
       });
     if (!data) setLoading(false);
 

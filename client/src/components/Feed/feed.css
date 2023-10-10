@@ -1,3 +1,13 @@
-.Feed {
-    width: 100%;
+.feed {
+  width: 100%;
+}
+
+.loading-p {
+  margin-top: 20rem;
+  text-align: center;
+}
+
+.error-p {
+  margin-top: 20rem;
+  text-align: center;
 }
