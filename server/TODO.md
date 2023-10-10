@@ -40,3 +40,5 @@ add profile to header
 # Bugs
 
 thoughts with no image still have a post-img-wrap div that is 20px tall
+
+post modal css broken
