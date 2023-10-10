@@ -2,11 +2,20 @@ import "./navbar.css";
 
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
-  const [cookies] = useCookies([]);
+  const [cookies, removeCookie] = useCookies([]);
 
-  if(!cookies.token){
+  const navigate = useNavigate();
+  const Logout = () => {
+    if (cookies) {
+      removeCookie("token");
+      navigate("/login");
+    }
+  };
+
+  if(cookies.token === "undefined"){
     return (
         <section className="navigation">
           <div className="nav-container">
@@ -63,7 +72,7 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="nav-logout" to={"/logout"}>
+              <Link className="nav-logout" onClick={Logout()}>
                 Log out
               </Link>
             </li>

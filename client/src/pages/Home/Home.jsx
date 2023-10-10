@@ -9,20 +9,13 @@ import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
+  const [cookies] = useCookies([]);
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const [openModal, setOpenModal] = useState(false);
-
-  const Logout = () => {
-    if (cookies) {
-      removeCookie("token");
-      navigate("/login");
-    }
-  };
 
   // on component mount hook
   useEffect(() => {
@@ -50,19 +43,22 @@ const Home = () => {
   return (
     <div className="home">
       <Navbar></Navbar>
-      <Feed
-        dataState={data}
-        changeData={setData}
-        loadingState={loading}
-        changeLoading={setLoading}
-        errorState={error}
-        changeError={setError}
-      ></Feed>
-
+      <div className="home-cont-wrap">
+        <div className="holder-left"></div>
+        <Feed
+          dataState={data}
+          changeData={setData}
+          loadingState={loading}
+          changeLoading={setLoading}
+          errorState={error}
+          changeError={setError}
+        ></Feed>
+        <div className="holder-right"></div>
+      </div>
       <button
         className="add-modal"
         onClick={() => {
-          if (!cookies.token.value) navigate("/login");
+          if (cookies.token === "undefined") navigate("/login");
           else setOpenModal(!openModal);
         }}
       >

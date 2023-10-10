@@ -14,8 +14,6 @@ regex for password and username fields on login and signup forms (pattern)
 
 add confirm password for sign up form
 
-add logout route that deletes cookie and redirects to login page
-
 if user is logged in, dont let them visit the login or signup pages
 
 make it so the email and password fields dont empty on submitting login form, same for sign up
@@ -32,18 +30,15 @@ feed css drop shadow?
 
 user pages with link in thought
 
-
-
-
 delete button for thoughts if they belong to you
 
 clean up the rerendering of feed when using the post modal. Only change the state key when a post is made, new state will be needed in home
 
 add profile to header
 
-## p1
-add /logout route
 
 # Bugs
 
 thoughts with no image still have a post-img-wrap div that is 20px tall
+
+login and signup form css messed up from height changes
