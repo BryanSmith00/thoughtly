@@ -15,71 +15,76 @@ export const Navbar = () => {
     }
   };
 
-  if(cookies.token === "undefined"){
+  if (cookies.token === "undefined") {
     return (
-        <section className="navigation">
-          <div className="nav-container">
-            <nav>
-              <ul className="nav-list">
-                <li className="nav-home">
-                  <Link to={"/"}>Home</Link>
-                </li>
-                <li>
-                  <Link to={"/trending"}>Trending</Link>
-                </li>
-    
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-    
-                <li>
-                  <Link className="nav-signup" to={"/signup"}>
-                    Sign up
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav-login" to={"/login"}>
-                    Log in
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </section>
-      );
-  }else{
-  return (
-    <section className="navigation">
-      <div className="nav-container">
-        <nav>
-          <ul className="nav-list">
-            <li className="nav-home">
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/trending"}>Trending</Link>
-            </li>
+      <section className="navigation">
+        <div className="nav-container">
+          <nav>
+            <ul className="nav-list">
+              <li className="nav-home">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link to={"/trending"}>Trending</Link>
+              </li>
 
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
 
-            <li>
-              <Link className="nav-settings" to={"/settings"}>
-                Settings
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-logout" onClick={Logout()}>
-                Log out
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </section>
-  );
-}
+              <li>
+                <Link className="nav-signup" to={"/signup"}>
+                  Sign up
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-login" to={"/login"}>
+                  Log in
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    );
+  } else {
+    return (
+      <section className="navigation">
+        <div className="nav-container">
+          <nav>
+            <ul className="nav-list">
+              <li className="nav-home">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link to={"/trending"}>Trending</Link>
+              </li>
+
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+
+              <li>
+                <Link className="nav-settings" to={"/settings"}>
+                  Settings
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-logout"
+                  onClick={() => {
+                    Logout();
+                  }}
+                >
+                  Log out
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    );
+  }
 };
