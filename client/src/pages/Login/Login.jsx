@@ -12,7 +12,7 @@ const Login = () => {
     password: "",
   });
   const { email, password } = inputValue;
-  
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -90,8 +90,12 @@ const Login = () => {
             </div>
             <div className="links">
               {" "}
-              <Link to={"#"}>Forgot Password</Link>{" "}
-              <Link to={"/signup"}>Sign up</Link>{" "}
+              <Link className="forgot-link" to={"#"}>
+                Forgot Password
+              </Link>{" "}
+              <Link className="signup-link" to={"/signup"}>
+                Sign up
+              </Link>{" "}
             </div>
           </form>
         </div>

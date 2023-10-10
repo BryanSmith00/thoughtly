@@ -101,8 +101,10 @@ const Signup = () => {
               <input type="submit" value="Sign up"></input>
             </div>
             <div className="links">
-              {" "}
-              Already have an account? <Link to={"/login"}>Log in</Link>{" "}
+              <div className="already-text">Already have an account? </div>
+              <Link className="login-link" to={"/login"}>
+                Log in
+              </Link>
             </div>
           </form>
         </div>

@@ -40,5 +40,3 @@ add profile to header
 # Bugs
 
 thoughts with no image still have a post-img-wrap div that is 20px tall
-
-login and signup form css messed up from height changes
