@@ -45,7 +45,7 @@ export const PostModal = ({ open, close }) => {
         <div className="overlay">
           <div className="modal-container">
             <div className="modal-header">
-              <p>Post a thought</p>
+              <p className="post-modal-title">Post a thought</p>
               <button className="modal-btn close-modal-btn" onClick={close}>
                 Cancel
               </button>

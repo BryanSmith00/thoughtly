@@ -38,8 +38,13 @@
   position: absolute;
   right: 0.75rem;
   top: 0.75rem;
+  height: 1.5rem;
+  width: 3.5rem;
 }
 
+.post-modal-title {
+  text-align: center;
+}
 .modal-submit-btn {
   width: 2.5rem;
   height: 1.5rem;
@@ -64,4 +69,8 @@
   font-size: 18px;
   overflow: hidden;
   outline: none;
+}
+
+.form {
+  height: 80%;
 }
