@@ -58,7 +58,7 @@ const Home = () => {
       <button
         className="add-modal"
         onClick={() => {
-          if (cookies.token === "undefined") navigate("/login");
+          if (cookies.token === "undefined" || !cookies.token) navigate("/login");
           else setOpenModal(!openModal);
         }}
       >
