@@ -1,0 +1,10 @@
+.error-wrap {
+  justify-content: center;
+  text-align: center;
+}
+
+.error-header {
+  height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

@@ -36,9 +36,12 @@ clean up the rerendering of feed when using the post modal. Only change the stat
 
 add profile to header
 
+make any text with @* link to the profile
+
+work on profile page, including nav bar and center content. Can I reuse the feed element with a new query?
+
 
 # Bugs
 
 thoughts with no image still have a post-img-wrap div that is 20px tall
 
-post modal css broken
