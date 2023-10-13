@@ -3,7 +3,6 @@ import "./signup.css";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -22,10 +21,7 @@ const Signup = () => {
     });
   };
 
-  const handleError = (err) =>
-    toast.error(err, {
-      position: "bottom-left",
-    });
+  const handleError = (err) => {};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -109,7 +105,6 @@ const Signup = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </section>
   );
 };

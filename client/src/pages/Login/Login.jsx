@@ -3,7 +3,6 @@ import "./login.css";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,10 +20,7 @@ const Login = () => {
     });
   };
 
-  const handleError = (err) =>
-    toast.error(err, {
-      position: "bottom-left",
-    });
+  const handleError = (err) => {};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -100,8 +96,6 @@ const Login = () => {
           </form>
         </div>
       </div>
-
-      <ToastContainer />
     </section>
   );
 };
