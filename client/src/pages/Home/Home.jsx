@@ -1,5 +1,5 @@
-import "./home.css";
 import { Feed, Navbar, PostModal } from "../../components/componentindex";
+import "./home.css";
 
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -58,7 +58,8 @@ const Home = () => {
       <button
         className="add-modal"
         onClick={() => {
-          if (cookies.token === "undefined" || !cookies.token) navigate("/login");
+          if (cookies.token === "undefined" || !cookies.token)
+            navigate("/login");
           else setOpenModal(!openModal);
         }}
       >

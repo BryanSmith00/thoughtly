@@ -10,7 +10,7 @@ export const Thought = (props) => {
         <div className="post-header-info">
           <Link to={`/user/${props.username}`}>{props.displayName}</Link>{" "}
           <span>@{props.username}</span>
-          <span>{props.createdAt}</span>
+          <span>{props.createdAt.slice(0, 10)}</span>
           <p>{props.text}</p>
         </div>
       </div>

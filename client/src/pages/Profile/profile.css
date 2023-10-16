@@ -1,3 +1,16 @@
 .profile-wrap {
   justify-content: center;
 }
+
+.profile-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.holder-left {
+  height: 100%;
+}
+
+.holder-right {
+  height: 100%;
+}
