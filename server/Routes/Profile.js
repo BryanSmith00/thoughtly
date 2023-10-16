@@ -5,15 +5,17 @@ const jwt = require("jsonwebtoken");
 
 module.exports.Profile = async (req, res) => {
   const token = req.cookies.token;
+  user = await User.find({ username: req.body.username });
+
+  console.log(user);
 
   res.json(
-    await Thought.find({username: req.username})
+    await Thought.find({ user: user })
       .populate("user")
       .sort({ createdAt: -1 })
       .select(
         "username displayName profilePic text image likes reposts replies createdAt"
       )
-      .limit(10)
   );
   return res;
 };

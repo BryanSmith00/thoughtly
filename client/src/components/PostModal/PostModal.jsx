@@ -41,37 +41,35 @@ export const PostModal = ({ open, close }) => {
 
   if (open) {
     return (
-      <>
-        <div className="overlay">
-          <div className="modal-container">
-            <div className="modal-header">
-              <p className="post-modal-title">Post a thought</p>
-              <button className="modal-btn close-modal-btn" onClick={close}>
-                Cancel
+      <div className="overlay">
+        <div className="modal-container">
+          <div className="modal-header">
+            <p className="post-modal-title">Post a thought</p>
+            <button className="modal-btn close-modal-btn" onClick={close}>
+              Cancel
+            </button>
+          </div>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="modal-content">
+              <textarea
+                className="add-post-text"
+                type="text"
+                required
+                value={text}
+                name="text"
+                onChange={handleOnChange}
+                maxLength={256}
+                minLength={1}
+              ></textarea>
+            </div>
+            <div className="modal-footer">
+              <button className="modal-btn modal-submit-btn" type="Submit">
+                Post
               </button>
             </div>
-            <form className="form" onSubmit={handleSubmit}>
-              <div className="modal-content">
-                <textarea
-                  className="add-post-text"
-                  type="text"
-                  required
-                  value={text}
-                  name="text"
-                  onChange={handleOnChange}
-                  maxLength={256}
-                  minLength={1}
-                ></textarea>
-              </div>
-              <div className="modal-footer">
-                <button className="modal-btn modal-submit-btn" type="Submit">
-                  Post
-                </button>
-              </div>
-            </form>
-          </div>
+          </form>
         </div>
-      </>
+      </div>
     );
   }
 };
