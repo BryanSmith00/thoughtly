@@ -2,7 +2,6 @@
   height: 55px;
   background: rgba(72, 132, 63, 1);
   width: 100%;
-
 }
 
 .nav-container {
@@ -10,18 +9,18 @@
 }
 
 li {
-    text-align: center;
+  text-align: center;
 }
 
-.nav-list{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 nav ul li a:hover,
 nav ul li a:visited:hover {
-  background: rgb(51, 94, 44);;
+  background: rgb(51, 94, 44);
   color: #ffffff;
 }
 

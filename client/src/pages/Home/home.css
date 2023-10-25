@@ -1,3 +1,19 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  border-color: red;
+  border: 5px;
+  height: fit-content;
+}
+
+.header {
+  min-height: 55px;
+}
+
+.feed-wrap {
+  height: fit-content;
+}
+
 .add-modal {
   background-color: rgba(163, 92, 10, 0.603);
   border-radius: 3rem;
@@ -17,6 +33,7 @@
 .home-cont-wrap {
   display: flex;
   flex-direction: row;
+  height: fit-content;
 }
 
 .holder-left {

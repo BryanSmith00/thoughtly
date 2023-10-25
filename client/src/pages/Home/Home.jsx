@@ -1,4 +1,9 @@
-import { Feed, Navbar, PostModal } from "../../components/componentindex";
+import {
+  Feed,
+  Navbar,
+  PostModal,
+  Footer,
+} from "../../components/componentindex";
 import "./home.css";
 
 import { useNavigate } from "react-router-dom";
@@ -42,19 +47,27 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Navbar></Navbar>
+      <div className="header">
+        <Navbar></Navbar>
+      </div>
+
       <div className="home-cont-wrap">
         <div className="holder-left"></div>
-        <Feed
-          dataState={data}
-          changeData={setData}
-          loadingState={loading}
-          changeLoading={setLoading}
-          errorState={error}
-          changeError={setError}
-        ></Feed>
+
+        <div className="feed-wrap">
+          <Feed
+            dataState={data}
+            changeData={setData}
+            loadingState={loading}
+            changeLoading={setLoading}
+            errorState={error}
+            changeError={setError}
+          ></Feed>
+        </div>
+
         <div className="holder-right"></div>
       </div>
+
       <button
         className="add-modal"
         onClick={() => {
@@ -65,6 +78,7 @@ const Home = () => {
       >
         +
       </button>
+
       <PostModal
         open={openModal}
         close={() => {
@@ -72,6 +86,8 @@ const Home = () => {
           getData();
         }}
       ></PostModal>
+
+      <Footer></Footer>
     </div>
   );
 };
