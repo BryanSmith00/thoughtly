@@ -14,7 +14,7 @@ regex for password and username fields on login and signup forms (pattern)
 
 add confirm password for sign up form
 
-if user is logged in, dont let them visit the login or signup pages
+react infinite scroller for progressive loading
 
 make it so the email and password fields dont empty on submitting login form, same for sign up
 

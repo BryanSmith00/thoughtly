@@ -1,10 +1,13 @@
 import "./login.css";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 
 const Login = () => {
+  const [cookies] = useCookies([]);
+
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -19,6 +22,22 @@ const Login = () => {
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    // Protect route against logged in users, kicks back to home
+    const verifyCookie = async () => {
+      if (!cookies.token || cookies.token === "undefined") {
+      }
+      const { data } = await axios.post(
+        "http://localhost:4000",
+        {},
+        { withCredentials: true }
+      );
+      if (data.status) navigate("/");
+    };
+
+    verifyCookie();
+  });
 
   const handleError = (err) => {};
 
