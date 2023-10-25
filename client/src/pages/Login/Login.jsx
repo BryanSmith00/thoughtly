@@ -51,15 +51,10 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      console.log(data);
       const { success, message } = data;
-      if (success) {
-        setTimeout(() => {
-          navigate("/");
-        }, 200);
-      } else {
-        handleError(message);
-      }
+
+      if (success) navigate("/");
+      else handleError(message);
     } catch (error) {
       console.log(error);
     }
@@ -104,13 +99,12 @@ const Login = () => {
               <input type="submit" value="Log in"></input>
             </div>
             <div className="links">
-              {" "}
               <Link className="forgot-link" to={"#"}>
                 Forgot Password
-              </Link>{" "}
+              </Link>
               <Link className="signup-link" to={"/signup"}>
                 Sign up
-              </Link>{" "}
+              </Link>
             </div>
           </form>
         </div>

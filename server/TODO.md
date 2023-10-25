@@ -16,19 +16,7 @@ add confirm password for sign up form
 
 react infinite scroller for progressive loading
 
-make it so the email and password fields dont empty on submitting login form, same for sign up
-
-add 404 routes for anything not in the route list
-
-do we even need a home route on the backend or should the frontend component just return and the feed component fetches all the data
-
-factor feed out from home component into its own nested component
-
-take data from home response and put it into thoughts
-
 feed css drop shadow?
-
-user pages with link in thought
 
 delete button for thoughts if they belong to you
 

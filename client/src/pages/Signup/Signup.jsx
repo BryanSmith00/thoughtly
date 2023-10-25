@@ -53,13 +53,9 @@ const Signup = () => {
         { withCredentials: true }
       );
       const { success, message } = data;
-      if (success) {
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
-      } else {
-        handleError(message);
-      }
+
+      if (success) navigate("/");
+      else handleError(message);
     } catch (error) {
       console.log(error);
     }
