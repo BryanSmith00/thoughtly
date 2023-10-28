@@ -7,6 +7,7 @@ const { Home } = require("./Home");
 const { CreateThought } = require("./CreateThought");
 const { Profile } = require("./Profile");
 const { likePost } = require("./Like");
+const { repost } = require("./Repost");
 
 const router = require("express").Router();
 
@@ -17,5 +18,6 @@ router.post("/createthought", CreateThought);
 router.post("/home", Home);
 router.post("/profileposts", Profile);
 router.post("/like", likePost);
+router.post("/repost", repost);
 
 module.exports = router;

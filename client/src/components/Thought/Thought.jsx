@@ -6,7 +6,7 @@ import axios from "axios";
 export const Thought = (props) => {
   const toggleLike = async () => {
     try {
-      const like = await axios
+      await axios
         .post(
           "http://localhost:4000/like",
           { post_id: props._id },
@@ -17,9 +17,25 @@ export const Thought = (props) => {
         });
 
       // thought should use the likes, reposts, and replies as state so it can be rerendered on update
-      if (document.getElementById("likes").getAttribute("fill") === "none")
-        document.getElementById("likes").setAttribute("fill", "white");
-      else document.getElementById("likes").setAttribute("fill", "none");
+      //if (document.getElementById("likes").getAttribute("fill") === "none")
+      //document.getElementById("likes").setAttribute("fill", "white");
+      //else document.getElementById("likes").setAttribute("fill", "none");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const toggleRepost = async () => {
+    try {
+      await axios
+        .post(
+          "http://localhost:4000/repost",
+          { post_id: props._id },
+          { withCredentials: true }
+        )
+        .catch((error) => {
+          console.log(error);
+        });
     } catch (e) {
       console.log(e);
     }
@@ -75,6 +91,10 @@ export const Thought = (props) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
+            id="reposts"
+            onClick={() => {
+              toggleRepost();
+            }}
           >
             <polyline points="17 1 21 5 17 9"></polyline>
             <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
