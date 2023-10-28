@@ -1,12 +1,35 @@
 import "./thought.css";
 
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export const Thought = (props) => {
+  const toggleLike = async () => {
+    try {
+      const like = await axios
+        .post(
+          "http://localhost:4000/like",
+          { post_id: props._id },
+          { withCredentials: true }
+        )
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // thought should use the likes, reposts, and replies as state so it can be rerendered on update
+      if (document.getElementById("likes").getAttribute("fill") === "none")
+        document.getElementById("likes").setAttribute("fill", "white");
+      else document.getElementById("likes").setAttribute("fill", "none");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div className="post-container">
       <div className="post-header">
         <img src={props.profilePic} alt="" className="profile-image"></img>
+
         <div className="post-header-info">
           <Link to={`/user/${props.username}`}>{props.displayName}</Link>{" "}
           <span>@{props.username}</span>
@@ -14,9 +37,11 @@ export const Thought = (props) => {
           <p>{props.text}</p>
         </div>
       </div>
+
       <div className="post-img-wrap">
         <img src={props.image} alt="" className="post-img"></img>
       </div>
+
       <div className="post-info-counts">
         <div className="comments">
           <svg
@@ -72,6 +97,10 @@ export const Thought = (props) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
+            id="likes"
+            onClick={() => {
+              toggleLike();
+            }}
           >
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>

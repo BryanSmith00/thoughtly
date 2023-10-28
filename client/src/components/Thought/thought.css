@@ -49,13 +49,21 @@ img {
   display: flex;
   margin-top: 10px;
   height: 1rem;
+  justify-content: center;
 }
 .post-info-counts div {
   display: flex;
-  margin-right: 20px;
 }
 
 .post-info-counts div svg {
   color: #657786;
+}
+
+svg {
+  width: fit-content;
   margin-right: 10px;
+}
+
+svg:hover {
+  cursor: pointer;
 }

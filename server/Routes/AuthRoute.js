@@ -6,6 +6,8 @@ const { userVerification } = require("../Middleware/AuthMiddleware");
 const { Home } = require("./Home");
 const { CreateThought } = require("./CreateThought");
 const { Profile } = require("./Profile");
+const { likePost } = require("./Like");
+
 const router = require("express").Router();
 
 router.post("/signup", Signup);
@@ -14,5 +16,6 @@ router.post("/", userVerification);
 router.post("/createthought", CreateThought);
 router.post("/home", Home);
 router.post("/profileposts", Profile);
+router.post("/like", likePost);
 
 module.exports = router;

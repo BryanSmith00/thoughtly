@@ -4,7 +4,11 @@ export const Footer = () => {
   return (
     <div className="footer">
       <div className="github-link">
-        <a href="https://github.com/BryanSmith00" target="_blank">
+        <a
+          href="https://github.com/BryanSmith00"
+          target="_blank"
+          rel="noreferrer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -19,6 +23,7 @@ export const Footer = () => {
         <a
           href="https://www.linkedin.com/in/bryan-smith-890abb189/"
           target="_blank"
+          rel="noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

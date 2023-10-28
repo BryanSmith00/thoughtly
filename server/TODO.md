@@ -28,6 +28,11 @@ make any text with @* link to the profile
 
 website footer
 
+thought like count should be state to allow for rerendering
+
+thought like svg only updates the first on the page, do they need different ids?
+
+thoughts should display svgs based on if youve already interacted with them
 
 # Bugs
 
