@@ -34,6 +34,8 @@ thought like svg only updates the first on the page, do they need different ids?
 
 thoughts should display svgs based on if youve already interacted with them
 
+post modal should have variant for replying which means route cannot be hardcoded
+
 # Bugs
 
 thoughts with no image still have a post-img-wrap div that is 20px tall
