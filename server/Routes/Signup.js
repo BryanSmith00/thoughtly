@@ -21,6 +21,8 @@ module.exports.Signup = async (req, res, next) => {
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
+      // cookie set to expire 1 day in milliseconds from current time
+      expires: new Date(Date.now() + 86400 * 1000),
     });
     res
       .status(201)
