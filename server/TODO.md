@@ -38,6 +38,8 @@ post modal should have variant for replying which means route cannot be hardcode
 
 remember me button on login page, change endpoint response to expires: false else 1 day cookies?
 
+Either set username by default or prompt user on sign up page
+
 # Bugs
 
 thoughts with no image still have a post-img-wrap div that is 20px tall
