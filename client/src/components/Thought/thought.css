@@ -42,6 +42,8 @@ img {
 }
 
 .post-img-wrap {
+  width: fit-content;
+  height: fit-content;
   padding-left: 60px;
 }
 
@@ -66,4 +68,8 @@ svg {
 
 svg:hover {
   cursor: pointer;
+}
+
+.profile-pic-wrap {
+  width: fit-content;
 }

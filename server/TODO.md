@@ -40,7 +40,6 @@ remember me button on login page, change endpoint response to expires: false els
 
 Either set username by default or prompt user on sign up page
 
+change user route to /id rather than /user/id, will require protecting all used routes and preventing accounts with certain names
+
 # Bugs
-
-thoughts with no image still have a post-img-wrap div that is 20px tall
-
