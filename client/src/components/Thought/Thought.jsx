@@ -44,7 +44,7 @@ export const Thought = (props) => {
   if (props.image) {
     return (
       <div className="post-container">
-        <div className="post-header">
+        <div className="post-info">
           <div className="profile-pic-wrap">
             <Link to={`/user/${props.username}`}>
               <img
@@ -55,19 +55,21 @@ export const Thought = (props) => {
             </Link>
           </div>
 
-          <div className="post-header-info">
-            <Link to={`/user/${props.username}`}>{props.displayName}</Link>
-            <span>@{props.username}</span>
-            <span>{props.createdAt.slice(0, 10)}</span>
+          <div className="post-content">
+            <div className="post-content-info">
+              <Link to={`/user/${props.username}`}>{props.displayName}</Link>
+              <span>@{props.username}</span>
+              <span>{props.createdAt.slice(0, 10)}</span>
+            </div>
             <p>{props.text}</p>
+
+            <div className="post-img-wrap">
+              <img src={props.image} alt="" className="post-img"></img>
+            </div>
           </div>
         </div>
 
-        <div className="post-img-wrap">
-          <img src={props.image} alt="" className="post-img"></img>
-        </div>
-
-        <div className="post-info-counts">
+        <div className="post-stats">
           <div className="comments">
             <svg
               className="feather feather-message-circle sc-dnqmqq jxshSx"
@@ -133,7 +135,7 @@ export const Thought = (props) => {
             >
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
-            <div className="likes-count">{props.likes.length}</div>
+            <div className="like-count">{props.likes.length}</div>
           </div>
         </div>
       </div>
@@ -141,7 +143,7 @@ export const Thought = (props) => {
   } else {
     return (
       <div className="post-container">
-        <div className="post-header">
+        <div className="post-info">
           <div className="profile-pic-wrap">
             <Link to={`/user/${props.username}`}>
               <img
@@ -152,15 +154,17 @@ export const Thought = (props) => {
             </Link>
           </div>
 
-          <div className="post-header-info">
-            <Link to={`/user/${props.username}`}>{props.displayName}</Link>
-            <span>@{props.username}</span>
-            <span>{props.createdAt.slice(0, 10)}</span>
+          <div className="post-content">
+            <div className="post-content-info">
+              <Link to={`/user/${props.username}`}>{props.displayName}</Link>
+              <span>@{props.username}</span>
+              <span>{props.createdAt.slice(0, 10)}</span>
+            </div>
             <p>{props.text}</p>
           </div>
         </div>
 
-        <div className="post-info-counts">
+        <div className="post-stats">
           <div className="comments">
             <svg
               className="feather feather-message-circle sc-dnqmqq jxshSx"
@@ -226,7 +230,7 @@ export const Thought = (props) => {
             >
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
-            <div className="likes-count">{props.likes.length}</div>
+            <div className="like-count">{props.likes.length}</div>
           </div>
         </div>
       </div>

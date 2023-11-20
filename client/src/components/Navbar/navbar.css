@@ -44,3 +44,7 @@ nav ul li a {
   background: transparent;
   color: #fff;
 }
+
+.nav-name {
+  font-size: larger;
+}

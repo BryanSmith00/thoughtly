@@ -25,6 +25,13 @@ export const Navbar = () => {
 
               <li></li>
               <li></li>
+
+              <li>
+                <div className="nav-name">
+                  <Link to={"/"}>Thoughtly</Link>
+                </div>
+              </li>
+
               <li></li>
               <li></li>
 
@@ -58,6 +65,13 @@ export const Navbar = () => {
 
               <li></li>
               <li></li>
+
+              <li>
+                <div className="nav-name">
+                  <Link to={"/"}>Thoughtly</Link>
+                </div>
+              </li>
+
               <li></li>
               <li></li>
 

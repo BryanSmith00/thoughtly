@@ -10,10 +10,6 @@
   min-height: 55px;
 }
 
-.feed-wrap {
-  height: fit-content;
-}
-
 .add-modal {
   background-color: rgba(163, 92, 10, 0.603);
   border-radius: 3rem;
@@ -30,6 +26,10 @@
   font-weight: 100;
 }
 
+.add-modal:hover {
+  cursor: pointer;
+}
+
 .home-cont-wrap {
   display: flex;
   flex-direction: row;
@@ -38,6 +38,11 @@
 
 .holder-left {
   height: 100%;
+}
+
+.feed-wrap {
+  height: fit-content;
+  font-size: 1rem;
 }
 
 .holder-right {
