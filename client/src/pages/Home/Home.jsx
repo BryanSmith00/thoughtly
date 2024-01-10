@@ -6,6 +6,8 @@ import {
 } from "../../components/componentindex";
 import "./home.css";
 
+import Landing from "../Landing/Landing.jsx"
+
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useEffect, useState } from "react";
@@ -45,6 +47,7 @@ const Home = () => {
     setData(posts);
   };
 
+  // if there is no cookie return <Landing />
   return (
     <div className="home">
       <div className="header">

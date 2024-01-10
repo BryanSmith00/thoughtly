@@ -42,4 +42,13 @@ Either set username by default or prompt user on sign up page
 
 change user route to /id rather than /user/id, will require protecting all used routes and preventing accounts with certain names
 
+# p1 
+landing page with logo for people with no cookies
+
+for now just send back landing page from backend / route if no cookie
+in future add exception if they've clicked past it, boolean check?
+maybe needs new cookie for first time landers
+
 # Bugs
+
+if the backend isnt running the frontend will display a failed to load message but upon server restarting page has to be refreshed to bring posts back, spa navigating to home doesnt reload the content
