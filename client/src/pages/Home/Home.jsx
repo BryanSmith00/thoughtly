@@ -6,7 +6,7 @@ import {
 } from "../../components/componentindex";
 import "./home.css";
 
-import Landing from "../Landing/Landing.jsx"
+import Landing from "../Landing/Landing.jsx";
 
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -48,51 +48,55 @@ const Home = () => {
   };
 
   // if there is no cookie return <Landing />
-  return (
-    <div className="home">
-      <div className="header">
-        <Navbar></Navbar>
-      </div>
-
-      <div className="home-cont-wrap">
-        <div className="holder-left"></div>
-
-        <div className="feed-wrap">
-          <Feed
-            dataState={data}
-            changeData={setData}
-            loadingState={loading}
-            changeLoading={setLoading}
-            errorState={error}
-            changeError={setError}
-          ></Feed>
+  if (cookies.token || !cookies.token === "undefined") {
+    return (
+      <div className="home">
+        <div className="header">
+          <Navbar></Navbar>
         </div>
 
-        <div className="holder-right"></div>
+        <div className="home-cont-wrap">
+          <div className="holder-left"></div>
+
+          <div className="feed-wrap">
+            <Feed
+              dataState={data}
+              changeData={setData}
+              loadingState={loading}
+              changeLoading={setLoading}
+              errorState={error}
+              changeError={setError}
+            ></Feed>
+          </div>
+
+          <div className="holder-right"></div>
+        </div>
+
+        <button
+          className="add-modal"
+          onClick={() => {
+            if (cookies.token === "undefined" || !cookies.token)
+              navigate("/login");
+            else setOpenModal(!openModal);
+          }}
+        >
+          +
+        </button>
+
+        <PostModal
+          open={openModal}
+          close={() => {
+            setOpenModal(false);
+            getData();
+          }}
+        ></PostModal>
+
+        <Footer></Footer>
       </div>
-
-      <button
-        className="add-modal"
-        onClick={() => {
-          if (cookies.token === "undefined" || !cookies.token)
-            navigate("/login");
-          else setOpenModal(!openModal);
-        }}
-      >
-        +
-      </button>
-
-      <PostModal
-        open={openModal}
-        close={() => {
-          setOpenModal(false);
-          getData();
-        }}
-      ></PostModal>
-
-      <Footer></Footer>
-    </div>
-  );
+    );
+  } else {
+    return <Landing></Landing>
+  }
 };
 
 export default Home;
